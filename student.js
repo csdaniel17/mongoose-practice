@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 var Student = mongoose.model('Student', {
-  name: String,
+  name: {type: String, required: true},
   links: {
-    website: String,
-    github: String
+    website: {type: String, required: true},
+    github: {type: String, required: true}
   },
-  gender: String,
+  gender: {type: String, enum: ['Male', 'Female'], required: true},
   projects: [String],
   points: Number
 });
